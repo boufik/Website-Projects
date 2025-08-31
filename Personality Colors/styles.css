@@ -1,0 +1,365 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body - Contains everything*/
+/* body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #ddd;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Main Container inside the body */
+/* body > div.container */
+.container {
+    max-width: 1400px;						                /* NECESSARY */
+    margin: 0 auto;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;			                /* NECESSARY */
+    grid-template-rows: 1fr 1fr auto;		                /* NECESSARY */
+    height: calc(100vh - 40px);
+    padding: 0 20px;
+}
+
+/* Children (6) of div.container */
+/* body > div.container > div.personality-area AND */
+/* body > div.container > div.chart-area */
+.personality-area, .chart-area{
+    margin: 5px;								            /* Maybe, it can be omitted */
+    border-radius: 20px;
+}
+
+
+
+
+/* Personality Areas */
+/* body > div.container > div.personality-area */
+.personality-area {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 5px 15px 5px 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;						                /* NECESSARY if I want the areas NOT to fully extend vertically */
+    height: 28vh;							                /* Maybe, it can be omitted */
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style scrollbar in order to look nicer */
+.personality-area::-webkit-scrollbar {
+    width: 10px;
+}
+.personality-area::-webkit-scrollbar-track {
+    background: transparent; 
+    border-radius: 20px;
+}
+.personality-area::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+
+
+
+/* Color-specific styling for Personality Areas */
+/* body > div.container > div.red-area */
+.red-area {
+    border-left: 8px solid #e74c3c;				        /* Probably unnecessary */
+	border: 5px solid red;
+    background: linear-gradient(to right, #ffc0c0, #ffa0a0);
+}
+
+/* body > div.container > div.yellow-area */
+.yellow-area {
+    border-left: 8px solid #f1c40f;				        /* Probably unnecessary */
+	border: 5px solid yellow;
+    background: linear-gradient(to right, #ffffcc, #ffffaa);
+}
+
+/* body > div.container > div.green-area */
+.green-area {
+    border-left: 8px solid #27ae60;				        /* Probably unnecessary */
+	border: 5px solid green;
+    background: linear-gradient(to right, #c0ffc0, #a0dda0);
+}
+
+/* body > div.container > div.blue-area */
+.blue-area {
+    border-left: 8px solid #3498db;				        /* Probably unnecessary */
+	border: 5px solid blue;
+    background: linear-gradient(to right, #c0c0ff, #a0a0ff);
+}
+
+
+
+
+/* Area Titles */
+/* body > div.container > div.personality-area > h2.area-title */
+.area-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.red-area .area-title {
+    color: red;
+    text-shadow: 2px 2px 4px rgba(231, 76, 60, 0.3);
+}
+
+.yellow-area .area-title {
+    color: #f39c12;
+    text-shadow: 2px 2px 4px rgba(243, 156, 18, 0.3);
+}
+
+.green-area .area-title {
+    color: green;
+    text-shadow: 2px 2px 4px rgba(39, 174, 96, 0.3);
+}
+
+.blue-area .area-title {
+    color: blue;
+    text-shadow: 2px 2px 4px rgba(52, 152, 219, 0.3);
+}
+
+/* Traits Grid */
+/* body > div.container > div.personality-area > h2.traits-grid */
+.traits-grid {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+    /* max-height: calc(100% - 80px); */
+}
+
+
+
+/* Individual Trait Items */
+/* body > div.container > div.personality-area > h2.traits-grid > div.trait-item */
+/* Individual Trait Items */
+.trait-item {
+    display: flex;
+    gap: 10px;                                          /* Gap refers to the elements inside inside a .trait-item, not the .trait-item itself */
+    align-items: center;
+    padding: 2px;
+    /* background: rgba(255, 255, 255, 0.8); */
+    border-radius: 12px;
+    overflow-y: auto;                                   /* I think this is necessary */
+}
+
+/* About the 3 elements inside the div.trait-item */
+/* body > div.container > div.personality-area > h2.traits-grid > div.trait-item > label */
+.trait-item label{
+    width: 170px;                                       /* Maybe, "flex: 1;" can be used instead of this */
+    /* flex: 1; */
+    /* font-weight: 500; */
+    font-size: 0.9rem;
+}
+
+/* body > div.container > div.personality-area > h2.traits-grid > div.trait-item > input */
+.trait-item input.trait-slider{
+    flex: 0 0 150px;                                    /* Exactly the same functionality as "width: 150px" */
+    height: 5px;                                        /* The height of the bar slider */
+    cursor: pointer;
+    /* transition: all 0.3s ease; */
+    margin-right: 15px;
+}
+
+/* body > div.container > div.personality-area > h2.traits-grid > div.trait-item > span */
+div.red-area span{
+    color: red;
+    font-weight: 900;
+}
+div.yellow-area span{
+    color: #f39c12;
+    font-weight: 900;
+}
+div.green-area span{
+    color: green;
+    font-weight: 900;
+}
+div.blue-area span{
+    color: blue;
+    font-weight: 900;
+}
+
+/* 
+.trait-value {
+    flex: 0 0 25px;
+    text-align: center;
+    color: #333;
+    background: rgba(52, 73, 94, 0.1);
+    border-radius: 6px;
+    padding: 4px;
+}
+*/
+
+
+
+/* Chart Areas */
+/* body > div.container > div.chart-area */
+.chart-area{
+    /* border-left: 8px solid #3498db; */
+	border: 5px solid #800080;
+    background: linear-gradient(to right, rgb(233, 205, 210), pink);
+    padding: 5px 15px 5px 15px;
+}
+
+
+
+/* Area Title */
+/* body > div.container > div.chart-area > h2.area-title */
+.chart-area .area-title {
+    color: #800080;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+/* Chart Container */
+/* body > div.container > div.chart-area > div.chart-container */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;                /* Seems necessary! It narrows down the size of charts */
+    gap: 10px;
+    width: 100%;
+}
+
+/* Canvas */
+/* body > div.container > div.chart-area > div.chart-container > canvas */
+canvas {
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Chart Legend */
+/* body > div.container > div.chart-area > div.chart-container > div.chart-legend */
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 7px;
+}
+
+
+
+
+/* Cool Visualization of scores */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.legend-item:hover {
+    transform: scale(1.05);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+        height: auto;
+    }
+    
+    .personality-area {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 0 10px;
+        gap: 15px;
+    }
+    
+    .personality-area, .chart-area {
+        padding: 20px;
+        border-radius: 15px;
+    }
+    
+    .area-title {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .trait-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 10px;
+    }
+    
+    .trait-slider {
+        flex: none;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .trait-value {
+        align-self: center;
+        flex: none;
+    }
+    
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Scrollbar Styling */
+.personality-area::-webkit-scrollbar,
+.traits-grid::-webkit-scrollbar {
+    width: 8px;
+}
+
+.personality-area::-webkit-scrollbar-track,
+.traits-grid::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.personality-area::-webkit-scrollbar-thumb,
+.traits-grid::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.personality-area::-webkit-scrollbar-thumb:hover,
+.traits-grid::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.5);
+}

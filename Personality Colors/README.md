@@ -16,5 +16,3 @@ My idea was to create a dynamic website, where the user can input their opinion 
 Of course, if a person is more "red", then we expect the mean value of all 22 red traits to be ranked as the highest one. This happens in most of the cases, but not every time. Play with it to discover yourself!
 
 The output website looks like this:
-
-![Screenshot of the website look](https://github.com/boufik/Website-Projects/blob/main/Personality%20Colors/output_website.png)
